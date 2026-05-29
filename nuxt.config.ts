@@ -1,6 +1,6 @@
 import tailwindcss from '@tailwindcss/vite'
 
-const rawBaseURL = process.env.NUXT_APP_BASE_URL || (process.env.NODE_ENV === 'production' ? '/time-track/' : '/')
+const rawBaseURL = process.env.NUXT_APP_BASE_URL || '/'
 const baseURL = rawBaseURL.endsWith('/') ? rawBaseURL : `${rawBaseURL}/`
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
