@@ -1,5 +1,8 @@
 import tailwindcss from '@tailwindcss/vite'
 
+const rawBaseURL = process.env.NUXT_APP_BASE_URL || (process.env.NODE_ENV === 'production' ? '/time-track/' : '/')
+const baseURL = rawBaseURL.endsWith('/') ? rawBaseURL : `${rawBaseURL}/`
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   srcDir: 'app/',
@@ -27,11 +30,12 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   app: {
+    baseURL,
     head: {
       title: 'Keep Track',
       link: [
-        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-        { rel: 'apple-touch-icon', href: '/favicon.png' },
+        { rel: 'icon', type: 'image/png', href: `${baseURL}favicon.png` },
+        { rel: 'apple-touch-icon', href: `${baseURL}favicon.png` },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap' }
@@ -61,15 +65,16 @@ export default defineNuxtConfig({
       theme_color: '#3B82F6',
       background_color: '#FFFFFF',
       display: 'standalone',
-      start_url: '/',
+      start_url: baseURL,
+      scope: baseURL,
       icons: [
         {
-          src: '/favicon.png',
+          src: `${baseURL}favicon.png`,
           sizes: '512x512',
           type: 'image/png'
         },
         {
-          src: '/favicon.png',
+          src: `${baseURL}favicon.png`,
           sizes: '512x512',
           type: 'image/png',
           purpose: 'maskable'

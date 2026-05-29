@@ -1,64 +1,61 @@
-# Nuxt Starter Template
+# Keep Track
 
-[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
+Keep Track is a Nuxt 3 PWA time-tracking app that stores data in localStorage.
 
-Use this template to get started with [Nuxt UI](https://ui.nuxt.com) quickly.
+## Screenshot
 
-- [Live demo](https://starter-template.nuxt.dev/)
-- [Documentation](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
+![Keep Track App Screenshot](./screenshot.png)
 
-<a href="https://starter-template.nuxt.dev/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-    <img alt="Nuxt Starter Template" src="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png" width="830" height="466">
-  </picture>
-</a>
+## Features
 
-> The starter template for Vue is on https://github.com/nuxt-ui-templates/starter-vue.
+- Add and manage projects.
+- Log work in 20-minute increments.
+- Mark payment done with `Select All` or custom hours.
+- Export project logs to PDF.
+- Delete projects only after logs are cleared.
+- Installable PWA with offline support.
 
-## Quick Start
+## Tech Stack
 
-```bash [Terminal]
-npm create nuxt@latest -- -t ui
-```
-
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-name=starter&repository-url=https%3A%2F%2Fgithub.com%2Fnuxt-ui-templates%2Fstarter&demo-image=https%3A%2F%2Fui.nuxt.com%2Fassets%2Ftemplates%2Fnuxt%2Fstarter-dark.png&demo-url=https%3A%2F%2Fstarter-template.nuxt.dev%2F&demo-title=Nuxt%20Starter%20Template&demo-description=A%20minimal%20template%20to%20get%20started%20with%20Nuxt%20UI.)
+- Nuxt 3
+- Vue 3
+- Tailwind CSS v4
+- @vite-pwa/nuxt
+- jsPDF
 
 ## Setup
 
-Make sure to install the dependencies:
-
 ```bash
-pnpm install
+npm install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Development
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
-## Production
-
-Build the application for production:
+## Type Check
 
 ```bash
-pnpm build
+npm run typecheck
 ```
 
-Locally preview production build:
+## Build
 
 ```bash
-pnpm preview
+npm run build
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Static Generate
 
-## Renovate integration
+```bash
+npm run generate
+```
 
-Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.
+## Deploy to GitHub Pages
+
+This repository includes a Pages workflow at `.github/workflows/deploy-pages.yml`.
+
+- Push to `main` to trigger deployment.
+- Or run it manually from the Actions tab.
