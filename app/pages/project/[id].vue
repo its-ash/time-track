@@ -151,6 +151,26 @@ const clearProjectLogs = () => {
   }
 }
 
+const deleteProject = () => {
+  if (!project.value) {
+    return
+  }
+
+  const removed = store.deleteProject(project.value.id)
+
+  if (!removed.ok && removed.reason === 'has_logs') {
+    alert('This project has logs. Please clear logs first, then delete.')
+    return
+  }
+
+  if (!removed.ok) {
+    alert('Project could not be deleted.')
+    return
+  }
+
+  navigateTo('/')
+}
+
 onMounted(() => {
   hydrated.value = true
 })
@@ -317,14 +337,14 @@ onMounted(() => {
       </div>
     </section>
 
-    <section v-if="hydrated && project" class="bg-[#111827] px-4 pt-6 text-white md:px-6 md:py-12">
+    <section v-if="hydrated && project" class="bg-[#111827] px-4 py-6 text-white md:px-6 md:py-12">
       <div class="native-bottom-actions mx-auto max-w-7xl rounded-t-lg bg-white/10 p-5 md:rounded-lg md:p-8">
         <h2 class="text-2xl font-extrabold md:text-3xl">Project Actions</h2>
         <p class="mt-2 text-sm text-white/80 md:text-base">
-          Export or clear logs for this project only.
+          Export, clear logs, or delete this project.
         </p>
 
-        <div class="mt-6 grid gap-3 md:grid-cols-2">
+        <div class="mt-6 grid gap-3 md:grid-cols-3">
           <button
             class="btn-flat focus-solid h-14 bg-[#3B82F6] px-6 text-sm uppercase tracking-[0.2em] text-white hover:bg-[#2563EB]"
             @click="exportProjectPdf"
@@ -336,6 +356,12 @@ onMounted(() => {
             @click="clearProjectLogs"
           >
             Clear Project Logs
+          </button>
+          <button
+            class="btn-flat focus-solid h-14 bg-[#111827] px-6 text-sm uppercase tracking-[0.2em] text-white hover:bg-black"
+            @click="deleteProject"
+          >
+            Delete Project
           </button>
         </div>
       </div>

@@ -150,6 +150,22 @@ export const useTimeStore = () => {
     project.logs = []
   }
 
+  const deleteProject = (projectId: string) => {
+    const project = state.value.projects.find((item) => item.id === projectId)
+
+    if (!project) {
+      return { ok: false as const, reason: 'missing' as const }
+    }
+
+    if (project.logs.length > 0) {
+      return { ok: false as const, reason: 'has_logs' as const }
+    }
+
+    state.value.projects = state.value.projects.filter((item) => item.id !== projectId)
+    state.value.payments = state.value.payments.filter((item) => item.projectId !== projectId)
+    return { ok: true as const }
+  }
+
   const clearAllData = () => {
     state.value = {
       projects: [],
@@ -216,6 +232,7 @@ export const useTimeStore = () => {
     addLog,
     removeLog,
     clearProjectLogs,
+    deleteProject,
     clearAllData,
     getProject,
     markPaymentDone
