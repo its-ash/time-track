@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --fg: #111827;
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --secondary: #10b981;
+  --secondary-dark: #059669;
+  --accent: #f59e0b;
+  --accent-dark: #d97706;
+  --muted: #f3f4f6;
+  --muted-strong: #e5e7eb;
+  --border: #e5e7eb;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__nuxt {
+  min-height: 100%;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.02em;
+}
+
+.page-shell {
+  min-height: 100dvh;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #ffffff 36%, #f3f4f6 36%, #f3f4f6 100%);
+}
+
+.mobile-native-shell {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+}
+
+.native-bottom-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+}
+
+.project-log-list {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 720px;
+}
+
+.poster-shape {
+  position: absolute;
+  pointer-events: none;
+}
+
+.focus-solid:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn-flat {
+  border: 0;
+  border-radius: var(--radius-md);
+  transition: all 200ms;
+  font-weight: 600;
+}
+
+.btn-flat:hover {
+  transform: scale(1.05);
+}
+
+.input-flat {
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--muted);
+  color: var(--fg);
+}
+
+.input-flat:focus {
+  border-color: var(--primary);
+  background: #ffffff;
+  outline: none;
+}
+
+.card-flat {
+  border-radius: var(--radius-lg);
+  transition: all 200ms;
+}
+
+.card-flat:hover {
+  transform: scale(1.02);
+}
+
+@media (hover: none) {
+  .btn-flat:hover,
+  .card-flat:hover {
+    transform: none;
+  }
+
+  .btn-flat:active {
+    transform: scale(0.98);
+  }
+
+  .card-flat:active {
+    transform: scale(0.995);
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-native-shell {
+    padding-bottom: 0;
+  }
+
+  .native-bottom-actions {
+    position: static;
+    padding-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

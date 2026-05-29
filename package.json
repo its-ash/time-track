@@ -1,0 +1,26 @@
+{
+  "name": "TimeTrack",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.108",
+    "@vite-pwa/nuxt": "^1.1.1",
+    "jspdf": "^3.0.3",
+    "nuxt": "^3.17.7",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.0"
+  },
+  "packageManager": "npm@11.14.1"
+}
