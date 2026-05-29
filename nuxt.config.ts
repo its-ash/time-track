@@ -32,6 +32,9 @@ export default defineNuxtConfig({
   app: {
     baseURL,
     head: {
+      htmlAttrs: {
+        lang: 'en'
+      },
       title: 'Keep Track',
       link: [
         { rel: 'icon', type: 'image/png', href: `${baseURL}favicon.png` },
@@ -68,6 +71,11 @@ export default defineNuxtConfig({
       start_url: baseURL,
       scope: baseURL,
       icons: [
+        {
+          src: `${baseURL}icon-192.png`,
+          sizes: '192x192',
+          type: 'image/png'
+        },
         {
           src: `${baseURL}favicon.png`,
           sizes: '512x512',
