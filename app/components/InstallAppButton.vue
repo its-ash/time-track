@@ -37,14 +37,17 @@ const install = async () => {
     return
   }
 
+  const promptEvent = deferredPrompt.value
+  deferredPrompt.value = null
   installBusy.value = true
   try {
-    await deferredPrompt.value.prompt()
-    const choice = await deferredPrompt.value.userChoice
-    if (choice.outcome === 'accepted') {
+    await promptEvent.prompt()
+    const { outcome } = await promptEvent.userChoice
+    if (outcome === 'accepted') {
       installed.value = true
-      deferredPrompt.value = null
     }
+  } catch {
+    deferredPrompt.value = promptEvent
   } finally {
     installBusy.value = false
   }
